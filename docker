@@ -1,2 +1,5 @@
-FROM nginx
-  COPY ./usr/share/nginx/html/ 
+FROM tomcat:8.0
+ADD ./target/*.war/usr/local/tomcat/webapps
+EXPOSE 8080
+WORDIR /usr/local/tomcat/webapps/
+CMD ["catalin.sh","run"]
